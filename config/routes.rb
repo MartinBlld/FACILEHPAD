@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  resources :prospect_forms, controller: 'prospects', only: [:index, :show, :new, :create]
+
 end

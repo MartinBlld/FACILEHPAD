@@ -1,0 +1,24 @@
+#section2 .hp-section2-content-right-element-number {
+  height: 37px;
+  width: 37px;
+  font-size: 20px;
+  border-radius: 50%;
+  background: linear-gradient(168.07deg, #07434A 0.65%, #287675 91.28%);
+  color: white;
+  font-variation-settings: 'wght' 900;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hp-section2-content-right-element-vertical-line {
+    height: 100%;
+    width: 1px;
+    background: linear-gradient(168.07deg, #07434A 0.65%, #287675 91.28%);
+    opacity: 0.35;
+    position: absolute;
+    top: 0;
+    left: 4%;
+    z-index: -1;
+}

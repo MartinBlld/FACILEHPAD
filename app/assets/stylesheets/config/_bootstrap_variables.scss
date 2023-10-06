@@ -24,3 +24,24 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+.accordion-button::after {
+  background-image: url("fleche-vers-le-bas.png") !important;
+}
+
+.accordion-button {
+  border: none !important;  /* retire toutes les bordures */
+  border-bottom: 1px solid #ccc !important;  /* ajoute une légère bordure en bas */
+  border-radius: 0 !important;  /* s'assure qu'il n'y a pas de bordure arrondie */
+  border-color: #11535826 !important;
+  font-family: 'Work Sans', sans-serif !important;
+  font-variation-settings: 'wght' 700 !important;
+  font-size: 0.9rem !important;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  color: #115358 !important;
+}
+
+
+.accordion {
+  --bs-accordion-border-color: transparent !important;
+}

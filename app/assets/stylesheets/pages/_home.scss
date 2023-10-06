@@ -1,1 +1,17 @@
 // Specific CSS for your home-page
+#homepage {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 15px;
+  line-height: 25px;
+  height: fit-content;
+}
+
+
+.accordion-button::after {
+background-image: var(--bs-accordion-btn-icon);
+}

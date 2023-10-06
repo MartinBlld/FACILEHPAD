@@ -1,0 +1,68 @@
+
+@media (min-width: 1024px) {
+
+#section1 .hp-section1-text {
+  font-variation-settings: 'wght' 400;
+  font-size: 18px;
+  line-height: 30px;
+  margin-top: 30px;
+  max-width: 814px;
+  min-height: 84px;
+}
+
+ #section2 .hp-section2-content-right-element-number {
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+  background: linear-gradient(168.07deg, #07434A 0.65%, #287675 91.28%);
+  color: white;
+  font-variation-settings: 'wght' 900;
+  font-size: 35px;
+  line-height: 41px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#section2 .hp-section2-content-right-element-vertical-line {
+  height: 100%;
+  width: 1px;
+  background: linear-gradient(168.07deg, #07434A 0.65%, #287675 91.28%);
+  opacity: 0.35;
+  position: absolute;
+  top: 0;
+  left: 36px;
+  z-index: -1;
+}
+
+#hp-section-3 {
+  width: 94%;
+  background: linear-gradient(168.07deg, #07434A 0.65%, #287675 91.28%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  margin-top: 150px;
+  position: relative;
+}
+
+#hp-section-3 .hp-section3-case-title {
+  font-variation-settings: 'wght' 800;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  text-align: start;
+  width: 100%;
+  margin: 30px 0 15px 0;
+}
+
+#hp-section-3 .hp-section3-case-text {
+  font-variation-settings: 'wght' 400;
+  font-size: 14px;
+  line-height: 24px;
+  margin-bottom: 24px;
+}
+
+
+}

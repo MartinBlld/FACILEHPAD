@@ -1,2 +1,218 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div id="homepage">
+  <div class="light_green_background">
+    <section id="section1">
+      <div class="container text-center">
+        <%= image_tag "home-illustration.png", class:"home-image-illustration-desktop" %>
+       <h1 class="hp-section1-title">Libérez vous de votre recherche d’ehpad !</h1>
+
+
+    <p class="hp-section1-text">Facilehpad selectionne pour vous ou votre parent
+    un établissement qui répond à l’ensemble de vos critères en
+    prenant en compte l’urgence de la situation. Nous réalisons ensuite
+    l’ensemble des démarches administratives et réalisons les prises de
+    rendez vous nécessaire.
+    </p>
+  </div>
+    </section>
+
+<section id="section2" style="display: flex; align-items: flex-start;">
+  <%# ensemble des points %>
+  <div class="container">
+  <%# point 1 %>
+    <div style="position: relative;">
+    <%# numéro %>
+      <div class="hp-section2-content-right-element-number">1.</div>
+    <%# ligne %>
+        <div class="hp-section2-content-right-element-vertical-line"></div>
+    <%# texte + titre %>
+          <div class="hp-section2-content-right-element-content " >
+    <%# titre %>
+            <div class="hp-section2-content-right-element-content-title">
+              Remplissez le formulaire
+            </div>
+      <%# texte %>
+            <div class="hp-section2-content-right-element-content-text">
+              <p>Vous remplissez le formulaire pour nous
+              permettre d’effectuer une première selection
+              </p>
+            </div>
+          </div>
+        </div>
+        <div style="position: relative;">
+    <%# numéro %>
+          <div class="hp-section2-content-right-element-number">2.
+          </div>
+    <%# ligne %>
+          <div class="hp-section2-content-right-element-vertical-line">
+          </div>
+    <%# texte + titre %>
+          <div class="hp-section2-content-right-element-content " >
+    <%# titre %>
+          <div class="hp-section2-content-right-element-content-title">
+            Rendez-vous téléphonique
+          </div>
+  <%# texte %>
+            <div class="hp-section2-content-right-element-content-text">
+              <p>Nous vous recontactons par téléphone pour
+              affiner la recherche et vous conseiller dans
+              les démarches
+              </p>
+            </div>
+          </div>
+        </div>
+      <div>
+    <%# numéro %>
+    <div class="hp-section2-content-right-element-number">3.
+    </div>
+    <%# texte + titre %>
+    <div class="hp-section2-content-right-element-content " >
+    <%# titre %>
+      <div class="hp-section2-content-right-element-content-title">
+        Remplissez le formulaire
+      </div>
+      <%# texte %>
+      <div class="hp-section2-content-right-element-content-text">
+        <p>Vous remplissez le formulaire pour nous
+        permettre d’effectuer une première selection
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+  <%# partie verte %>
+
+  <section id="hp-section-3">
+    <div class="container">
+      <h2 class="section-title hp-section3-header-right-title">Une solution économique</h2>
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <%= image_tag "time-saving.png", class:"hp-section3-case1-icon" %>
+        <h2 class="section-title hp-section3-header-right-title">Economisez du temps</h2>
+        <div class="hp-section3-case-text">
+        Votre vie est suffisament remplie,utiliser votre temps
+        pour les choses qui comptent, vos proches, votre travail ou vous même.
+        </div>
+      </div>
+
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <%= image_tag "money-saving.png", class:"hp-section3-case1-icon" %>
+        <h2 class="section-title hp-section3-header-right-title">Economisez de l'argent</h2>
+        <div class="hp-section3-case-text">
+          Vous aurez accès à toutes les aides et vous ne tomberez pas dans les pièges que
+          tendent certaines maisons peux scrupuleuses
+        </div>
+      </div>
+
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <%= image_tag "mental-load.png", class:"hp-section3-case1-icon" %>
+        <h2 class="section-title hp-section3-header-right-title">Oubliez la charge mentale</h2>
+        <div class="hp-section3-case-text">
+          Nous nous occupons de tout selon vos critères, vous pouvez vous concentrer sur les décisions qui comptent vraiment.
+        </div>
+      </div>
+    <%# x2 %>
+      </div>
+  </section>
+
+
+  <%# partie blanche %>
+  <section id="section4">
+    <div class="container">
+      <h2 class="section-title hp-section4-title">La mission de FaciEhpad</h2>
+    <div class="d-flex flex-column align-items-center justify-content-center">
+
+    <%= image_tag "easiest-life.png", class:"hp-section4-icon2" %>
+
+    <h3 class="hp-section4-content-element-title">Simplifier</h3>
+    <div class="hp-section4-content-element-text">
+    Nous centralisons toutes les informations sur la plateforme,
+    vous n’aurez qu’à choisir parmis les deux propositions détaillées
+    qui vous seront faites. Vous n’aurez aucun document à remplir.
+    </div>
+    </div>
+  <%# x3 %>
+
+
+    <%= image_tag "comparator.png", class:"hp-section4-icon2" %>
+
+      <h3 class="hp-section4-content-element-title">Comparer</h3>
+        <div class="hp-section4-content-element-text">
+       Nous n’avons aucun accord ou partenariat avec aucun groupe,
+       nous comparons selons nos critères et nos barèmes.
+       Nous comparons les établissements comme si nous devions
+       y mettre notre père ou notre mère.
+        </div>
+
+    <%= image_tag "counsel.png", class:"hp-section4-icon2" %>
+
+      <h3 class="hp-section4-content-element-title">Conseiller</h3>
+        <div class="hp-section4-content-element-text">
+        Nous pourrons vous conseiller sur l’ensemble des démarches
+        et des options que vous avez. Vous n’êtes pas seul et nos
+        conseillers peuvent solliciter l’appui d’experts pour vous
+        apporter une réponse précise.
+        </div>
+
+    <%= image_tag "support.png", class:"hp-section4-icon2" %>
+
+      <h3 class="hp-section4-content-element-title">Accompagner</h3>
+        <div class="hp-section4-content-element-text">
+        Cette décision, qu’on l’a prenne pour soi ou pour un proche,
+        est une décision difficile.Nous en sommes conscient et nous
+        vous accompagnons pourfaire de cette épreuve une opportunité.
+        </div>
+    </div>
+  </section>
+
+  <section id="section5">
+
+  <div class="container text-center">
+
+  <h2 class="section-title">Questions fréquentes</h2>
+
+  <%# accordéons %>
+
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          EHPAD ou USLD ?
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          L’APA késako?
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Est il possible de faire les démarches à l’avance?
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      </div>
+    </section>
+  </div>
+</div>
