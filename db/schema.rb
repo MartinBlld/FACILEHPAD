@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_06_160115) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_07_101807) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "etablissements", force: :cascade do |t|
+    t.string "siret"
+    t.string "raison_sociale"
+    t.string "adresse"
+    t.string "telephone"
+    t.date "date_maj"
+    t.string "latitude"
+    t.string "longitude"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "prospect_forms", force: :cascade do |t|
     t.string "email"
@@ -49,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_06_160115) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "connaissance_gir"
+    t.string "status"
   end
 
 end

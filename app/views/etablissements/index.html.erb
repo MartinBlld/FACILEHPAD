@@ -1,0 +1,17 @@
+<div>
+<h2>Initialiser la DB d'EHPAD</h2>
+<%= link_to "Initialiser la DB d'EHPAD", initiate_database_path %>
+
+</div>
+
+<div>
+
+<% @etablissements.each do |e|  %>
+<div class="p-2">
+<%= e.siret  %>
+<%= e.raison_sociale%>
+</div>
+<% end %>
+
+
+</div>

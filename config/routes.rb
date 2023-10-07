@@ -6,4 +6,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :prospect_forms, controller: 'prospects', only: [:index, :show, :new, :create]
 
+  resources :etablissements, only: [:index, :show, :new, :create]
+  get 'initiate_database', to: 'etablissements#initiate_database', as: 'initiate_database'
+
+
 end
