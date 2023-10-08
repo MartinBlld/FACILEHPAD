@@ -9,7 +9,7 @@
   <%= f.input :telephone %>
 </div>
 
-<h3 class="quizz-part-title text-center">Critères géographique</h3>
+<h3 class="quizz-part-title text-center">Critères géographiques</h3>
 <%# critère géographique %>
 <div class="green-card">
 <%= f.input :adresse_de_recherche, label: 'Lieu de recherche', input_html: {data: { target: "address-autocomplete.adresseDeRecherche", address_autocomplete_target: ":adresse_de_recherche"}, class:"d-none" },
@@ -24,11 +24,11 @@
 <div class="green-card">
   <%= f.input :nombre_de_places, as: :radio_buttons, collection: [1,2] %>
   <%= f.input :services_indispensables, as: :check_boxes, collection: ['Soins médicaux', 'Activités', 'Sorties', 'Accueil de jour'] %>
-  <%= f.input :services_souhaites, as: :check_boxes, collection: ['Piscine', 'Jardin', 'Salon de coiffure', 'Restaurant'] %>
-  <%= f.input :type_de_residence, as: :check_boxes, collection: ['Autonome', 'Semi-autonome', 'Non-autonome'] %>
-  <%= f.input :confession_de_la_residence, as: :check_boxes, collection: ['Catholique', 'Protestante', 'Juive', 'Musulmane', 'Non confessionnelle'] %>
-  <%= f.input :interets_pour_sorties, as: :check_boxes, collection: ['Culturelles', 'Recreatives', 'Shopping', 'Nature'] %>
-  <%= f.input :interets_pour_activites, as: :check_boxes, collection: ['Peinture', 'Jardinage', 'Lecture', 'Jeux de société'] %>
+  <%= f.input :services_souhaites, label:"Services souhaités", as: :check_boxes, collection: ['Piscine', 'Jardin', 'Salon de coiffure', 'Restaurant'] %>
+  <%= f.input :type_de_residence,label:"Type de résidence", as: :check_boxes, collection: ['Autonome', 'Semi-autonome', 'Non-autonome'] %>
+  <%= f.input :confession_de_la_residence, label:"Confession de la résidence", as: :check_boxes, collection: ['Catholique', 'Protestante', 'Juive', 'Musulmane', 'Non confessionnelle'] %>
+  <%= f.input :interets_pour_sorties,label:"Intérêts pour les sorties", as: :check_boxes, collection: ['Culturelles', 'Récréatives', 'Shopping', 'Nature'] %>
+  <%= f.input :interets_pour_activites,label:"Intérêts pour les activités", as: :check_boxes, collection: ['Peinture', 'Jardinage', 'Lecture', 'Jeux de société'] %>
   </div>
 
 <h3 class="quizz-part-title text-center">Critères de confort</h3>
@@ -38,7 +38,7 @@
   <%= f.input :animal_de_compagnie,as: :radio_buttons, collection: ['Oui', 'Non'] %>
   <%= f.input :besoins_alimentaires, as: :check_boxes, collection: ['Sans sel', 'Sans sucre', 'Végétarien', 'Végétalien'] %>
   <%= f.input :meubles_et_objets_personnels, as: :radio_buttons,  collection: ['Oui', 'Non'] %>
-  <%= f.input :besoins_spécifiques_aménagement, as: :check_boxes,  collection: ['Accès fauteuil roulant', 'Barres d’appui', 'Lit médicalisé'] %>
+  <%= f.input :besoins_spécifiques_aménagement,label:"Aménagements spécifiques" as: :check_boxes,  collection: ['Accès fauteuil roulant', 'Barres d’appui', 'Lit médicalisé'] %>
   </div>
 
 <%# Medical %>
@@ -48,18 +48,20 @@
  <%= f.input :connaissance_gir, as: :radio_buttons, collection: [['Oui', true], ['Non', false]], label: "Connaissez-vous le GIR de la personne?", input_html: { data: { connaissance_gir_target: "knowsGir", action: "connaissance-gir#toggleGirVisibility" } } %>
 
   <div id="gir_selection" style="display:none;" data-connaissance-gir-target="girSelection">
-    <%= f.input :echelle_gir, as: :radio_buttons, collection: ['GIR 1', 'GIR 2', 'GIR 3', 'GIR 4', 'GIR 5', 'GIR 6'] %>
+    <%= f.input :echelle_gir,label:"Échelle GIR", as: :radio_buttons, collection: ['GIR 1', 'GIR 2', 'GIR 3', 'GIR 4', 'GIR 5', 'GIR 6'] %>
   </div>
 
   <div id="gir_description" style="display:none;" data-connaissance-gir-target="girDescription">
   <%= f.input :echelle_gir,
+            label:"Échelle GIR",
             collection: [
               ['Personne encore autonome dans les actes de la vie courante', 'GIR 6'],
               ['Personne ayant seulement besoin d\'une aide ponctuelle pour la toilette, la préparation des repas et le ménage', 'GIR 5'],
               ['Personne n\'assumant pas ses transferts mais qui une fois levée peut se déplacer à l\'intérieur de son logement et a besoin d\'aide pour la toilette et l\'habillage ou personne n\'ayant pas de problèmes locomoteurs mais qui doit être aidée pour les soins corporels et les repas', 'GIR 4'],
-              ['personne ayant conservé son autonomie mentale, partiellement son autonomie locomotrice, mais qui a besoin quotidiennement et plusieurs fois par jour d\'une aide pour les soins corporels', 'GIR 3'],
+              ['Personne ayant conservé son autonomie mentale, partiellement son autonomie locomotrice, mais qui a besoin quotidiennement et plusieurs fois par jour d\'une aide pour les soins corporels', 'GIR 3'],
               ['Personne confinée au lit ou au fauteuil, dont les fonctions mentales ne sont pas totalement altérées et dont l\'état exige une prise en charge pour la plupart des activités de la vie courante, ou personne dont les fonctions mentales sont altérées, mais qui est capable de se déplacer et qui nécessite une surveillance permanente', 'GIR 2'],
               ['Personne confinée au lit ou au fauteuil dont les fonctions mentales sont gravement altérées et qui nécessite une présence indispensable et continue d\'intervenants', 'GIR 1']
+              ['Je ne sais pas']
             ],
             as: :radio_buttons,
             label_method: :first,
@@ -68,25 +70,25 @@
   </div>
 
 
-  <%= f.input :etat_de_sante,  as: :radio_buttons,  collection: ['Bon', 'Moyen', 'Faible'] %>
-  <%= f.input :conditions_medicales_particulieres %>
-  <%= f.input :maladie_degenerative,  as: :radio_buttons, collection: ['Oui', 'Non'] %>
+  <%= f.input :etat_de_sante,label: "État de santé"  as: :radio_buttons,  collection: ['Bon', 'Moyen', 'Faible'] %>
+  <%= f.input :conditions_medicales_particulieres, label: "Conditions médicales particulières"%>
+  <%= f.input :maladie_degenerative,label:"Maladie dégénérative",  as: :radio_buttons, collection: ['Oui', 'Non'] %>
   </div>
 
 <%# Visites %>
-<h3 class="quizz-part-title text-center">Critère des visites</h3>
+<h3 class="quizz-part-title text-center">Critères des visites</h3>
   <div class="green-card">
-  <%= f.input :fréquence_des_visites, as: :radio_buttons, collection: ['Quotidiennes', 'Hebdomadaires', 'Mensuelles','Sans objet'] %>
+  <%= f.input :fréquence_des_visites, as: :radio_buttons, collection: ['Quotidiennes', 'Hebdomadaires', 'Mensuelles','Pas de visiteur'] %>
   <%= f.input :besoins_spécifiques_visiteurs,  as: :check_boxes, collection: ['Accès handicapé', 'Parking', 'Horaires flexibles'] %>
   </div>
 
   <%# Finance et dossier %>
   <h3 class="quizz-part-title text-center">Critères administratifs</h3>
   <div class="green-card">
-  <%= f.input :etat_du_dossier_administratif, as: :radio_buttons, collection: ['Complet', 'Incomplet', 'Non commencé'] %>
-  <%= f.input :budget_mensuel, collection: 1000.step(5000, 500) %>
-  <%= f.input :aides_financieres_déjà_obtenues_ou_en_cours,as: :check_boxes, collection: ['APA', 'Aide sociale', 'PCH', 'CAF'] %>
-  <%= f.input :aides_financieres_a_demander,as: :check_boxes, collection: ['APA', 'Aide sociale', 'PCH', 'CAF'] %>
+  <%= f.input :etat_du_dossier_administratif,label:"État du dossier administratif", as: :radio_buttons, collection: ['Complet', 'Incomplet', 'Non commencé'] %>
+  <%= f.input :budget_mensuel,label:"Budget mensuel maximum", collection: 1000.step(5000, 500) %>
+  <%= f.input :aides_financieres_déjà_obtenues_ou_en_cours,label:"Aides financières déjà obtenues ou en cours",as: :check_boxes, collection: ['APA', 'Aide sociale', 'PCH', 'CAF', 'Ne sais pas'] %>
+  <%= f.input :aides_financieres_a_demander,label:"Aides financières à demander",as: :check_boxes, collection: ['APA', 'Aide sociale', 'PCH', 'CAF', 'Ne sais pas'] %>
   <%= f.input :commentaires %>
   </div>
 
