@@ -1,0 +1,26 @@
+
+<%= link_to 'Back', prospect_form_path %>
+
+<div class="container">
+<div class="greener-card">
+  <h2> Informations de Contact</h2>
+  <%= @prospect_form.email %>
+
+  <%= @prospect_form.telephone %>
+
+<h3>Date de la fiche</h3>
+  <%= @prospect_form.created_at %>
+</div>
+
+</div>
+
+<h3>5 Etablissements proches</h3>
+<% @etablissements_proches.each do |e|  %>
+<div class="greener-card">
+<p><strong><%= e.raison_sociale %></strong></p>
+<p>Adresse: <%= e.adresse%></p>
+<p>Téléphone: <%= e.telephone%></p>
+<%= link_to 'Voir l’Établissement', etablissement_path(e), class:"btn btn-success m-3" %>
+
+</div>
+<% end %>

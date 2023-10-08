@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   resources :etablissements, only: [:index, :show, :new, :create]
   get 'initiate_database', to: 'etablissements#initiate_database', as: 'initiate_database'
 
-
+  get 'success', to: 'prospects#success', as: 'success'
+  get 'mentions-légales', to: 'pages#mentions_légales', as: 'mentions'
+  get 'contact', to: 'pages#contact', as: 'contact'
 end

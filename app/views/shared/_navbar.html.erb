@@ -11,12 +11,12 @@
             <h1>FacilEhpad</h1>
           </div>
           <div class="menu-items">
-            <li><a href="#">Accueuil</a></li>
-            <li><a href="#">Tarifs</a></li>
-             <%= link_to "Questionnaire", new_prospect_form_path %>
-            <li><a href="#">Remplir une demande</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">FAQ</a></li>
+          <li><%= link_to "Accueil", root_path %></li>
+            <li><%= link_to "Etablissements", etablissements_path %></li>
+            <li><%= link_to "Demandes", prospect_forms_path %></li>
+           <li>  <%= link_to "Remplir une demande", new_prospect_form_path %></li>
+            <li><%= link_to "Contact", contact_path %></li>
+            <%# <li><a href="#">FAQ</a></li> %>
           </div>
         </div>
       </div>

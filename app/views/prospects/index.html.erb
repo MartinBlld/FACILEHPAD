@@ -1,0 +1,14 @@
+
+
+<% @prospect_forms.each do |prospect| %>
+<div class="greener-card">
+<p><strong>Demande crée le :</strong></p><%= prospect.created_at.strftime("%d/%m/%Y à %H:%M") %>
+<p> <strong>Mail de contact</strong></p>
+<%= prospect.email %>
+<p><strong>Numéro de téléphone</strong></p>
+<%= prospect.telephone %>
+<p><strong>Message:</strong></p>
+<%= prospect.commentaires %>
+<%= link_to 'Voir le Formulaire', prospect_form_path(prospect), class:"btn btn-yellow" %>
+</div>
+<%  end  %>

@@ -12,8 +12,9 @@
 <h3 class="quizz-part-title text-center">Critères géographique</h3>
 <%# critère géographique %>
 <div class="green-card">
- <%= f.input :adresse_de_recherche, label: 'Lieu de recherche', input_html: {data: {address_autocomplete_target: ":adresse_de_recherche"}, class:"d-none" },
+<%= f.input :adresse_de_recherche, label: 'Lieu de recherche', input_html: {data: { target: "address-autocomplete.adresseDeRecherche", address_autocomplete_target: ":adresse_de_recherche"}, class:"d-none" },
                 wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}} %>
+
                 <%# demander si c'est la même ville? %>
   <%= f.input :rayon_de_recherche, as: :radio_buttons, collection: ['1 km', '3 km','5 km', '10 km', '20 km', '50 km', '100 km'] %>
 </div>
@@ -33,10 +34,10 @@
 <h3 class="quizz-part-title text-center">Critères de confort</h3>
 <%# confort individuel %>
   <div class="green-card">
-  <%= f.input :type_de_chambre,as: :check_boxes, collection: ['Individuelle', 'Double', 'Suite'] %>
-  <%= f.input :animal_de_compagnie,as: :check_boxes, collection: ['Oui', 'Non'] %>
+  <%= f.input :type_de_chambre,as: :radio_buttons, collection: ['Individuelle', 'Double', 'Suite', 'Sans préférence'] %>
+  <%= f.input :animal_de_compagnie,as: :radio_buttons, collection: ['Oui', 'Non'] %>
   <%= f.input :besoins_alimentaires, as: :check_boxes, collection: ['Sans sel', 'Sans sucre', 'Végétarien', 'Végétalien'] %>
-  <%= f.input :meubles_et_objets_personnels, as: :check_boxes,  collection: ['Oui', 'Non'] %>
+  <%= f.input :meubles_et_objets_personnels, as: :radio_buttons,  collection: ['Oui', 'Non'] %>
   <%= f.input :besoins_spécifiques_aménagement, as: :check_boxes,  collection: ['Accès fauteuil roulant', 'Barres d’appui', 'Lit médicalisé'] %>
   </div>
 
@@ -94,3 +95,4 @@
 </div>
 <% end %>
 </div>
+</form>

@@ -19,5 +19,10 @@ def index
   @etablissements = Etablissement.all
 end
 
+def show
+  @etablissement = Etablissement.find(params[:id])
+end
+
+
 
 end
