@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_07_185923) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_09_151002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,45 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_185923) do
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "finesset"
+    t.float "prix_hp_cs"
+    t.float "prix_hp_cd"
+    t.float "prix_hp_cs_ash"
+    t.float "prix_hp_cd_ash"
+    t.float "prix_ht_cs"
+    t.float "prix_ht_cd"
+    t.float "prix_ht_cs_ash"
+    t.float "prix_ht_cd_ash"
+    t.integer "prestation_inc_1", default: 0
+    t.integer "prestation_inc_2", default: 0
+    t.integer "prestation_inc_3", default: 0
+    t.integer "prestation_inc_4", default: 0
+    t.integer "prestation_inc_5", default: 0
+    t.integer "prestation_inc_6", default: 0
+    t.integer "prestation_inc_7", default: 0
+    t.integer "prestation_inc_8", default: 0
+    t.integer "prestation_inc_9", default: 0
+    t.integer "prestation_inc_10", default: 0
+    t.integer "prestation_inc_11", default: 0
+    t.text "autre_prestation_inc"
+    t.integer "prestation_sup_1", default: 0
+    t.float "tarif_prestation_sup_1"
+    t.text "unite_de_tarif_prestation_sup_1"
+    t.integer "prestation_sup_2", default: 0
+    t.integer "prestation_sup_3", default: 0
+    t.integer "prestation_sup_4", default: 0
+    t.integer "prestation_sup_5", default: 0
+    t.integer "prestation_sup_6", default: 0
+    t.integer "prestation_sup_7", default: 0
+    t.integer "prestation_sup_8", default: 0
+    t.integer "prestation_sup_9", default: 0
+    t.integer "prestation_sup_10", default: 0
+    t.integer "prestation_sup_11", default: 0
+    t.text "autres_prestation_sup"
+    t.float "tarif_dependance_gir_12"
+    t.float "tarif_dependance_gir_34"
+    t.float "tarif_dependance_gir_56"
+    t.datetime "date_maj_prix"
   end
 
   create_table "prospect_forms", force: :cascade do |t|
@@ -63,6 +102,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_07_185923) do
     t.datetime "updated_at", null: false
     t.boolean "connaissance_gir"
     t.string "status"
+    t.boolean "revenu_mensuel_mini"
   end
 
 end

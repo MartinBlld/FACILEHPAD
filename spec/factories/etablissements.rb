@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :etablissement do
+    finesset {'130798754'}
     siret { '12345678901234' }
     raison_sociale { 'Test Etablissement' }
     adresse { '123 rue de la Test, 75000 Paris' }

@@ -36,7 +36,7 @@ class DataGouvService
         Rails.logger.error "Record #{index} is nil"
         next  # Passe au prochain record
       end
-
+      finesset = record.dig('nofinesset')
       siret = record.dig('siret')
       raison_sociale = record.dig('rs')
       adresse = [
@@ -59,6 +59,7 @@ class DataGouvService
       end
 
       attributes = {
+        finesset: finesset,
         siret: siret,
         raison_sociale: raison_sociale,
         adresse: adresse,
@@ -70,7 +71,7 @@ class DataGouvService
       }
 
       etablissement = Etablissement.new(attributes)
-      unless etablissement.save
+      unless etablissement.save!(validate: false)
         Rails.logger.error "Failed to create Etablissement: #{etablissement.errors.full_messages.join(', ')}"
       end
     end

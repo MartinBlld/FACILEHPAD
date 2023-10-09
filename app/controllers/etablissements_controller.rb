@@ -12,7 +12,19 @@ class EtablissementsController < ApplicationController
   rescue => e
     # Gestion des erreurs potentielles lors de l'appel du service
     redirect_to etablissements_path, alert: "Something went wrong: #{e.message}"
-end
+  end
+
+  def initiate_price_and_services_database
+    records = PriceServicesEhpad.fetch_and_update_data
+    if records.is_a?(Array) && records.present?
+      PriceServicesEhpad.update_etablissements(records)
+      flash[:notice] = "Prix et services ajoutés!"
+    else
+      flash[:alert] = "Erreur : les données n'ont pas pu être récupérées ou mises à jour."
+    end
+    redirect_to etablissements_path
+  end
+
 
 
 def index

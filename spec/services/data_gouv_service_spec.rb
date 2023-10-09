@@ -10,6 +10,7 @@ RSpec.describe DataGouvService do
           :body => {
             'records' => [{
               'fields' => {
+                'nofinesset'=> "130798754",
                 'siret' => '12345678901234',
                 'rs' => 'Test Etablissement',
                 'numvoie' => '123',

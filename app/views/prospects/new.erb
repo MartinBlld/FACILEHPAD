@@ -45,22 +45,22 @@
 <%# Medical %>
 <h3 class="quizz-part-title text-center">Critères médicaux</h3>
 <div class="green-card" data-controller="connaissance-gir">
- <%= f.input :connaissance_gir, as: :radio_buttons, collection: [['Oui', true], ['Non', false]], label: "Connaissez-vous le GIR de la personne?", input_html: { data: { connaissance_gir_target: "knowsGir", action: "connaissance-gir#toggleGirVisibility" } } %>
+ <%= f.input :connaissance_gir, as: :radio_buttons, collection: [['Oui', true], ['Non', false]], label: "L'évaluation GIR a-t-elle été réalisée ?", input_html: { data: { connaissance_gir_target: "knowsGir", action: "connaissance-gir#toggleGirVisibility" } } %>
 
   <div id="gir_selection" style="display:none;" data-connaissance-gir-target="girSelection">
-    <%= f.input :echelle_gir,label:"Échelle GIR", as: :radio_buttons, collection: ['GIR 1', 'GIR 2', 'GIR 3', 'GIR 4', 'GIR 5', 'GIR 6'] %>
+    <%= f.input :echelle_gir,label:"Échelle GIR", as: :radio_buttons, collection: ['GIR 1-2', 'GIR 3-4', 'GIR 5-6'] %>
   </div>
 
   <div id="gir_description" style="display:none;" data-connaissance-gir-target="girDescription">
  <%= f.input :echelle_gir,
-label:"Échelle GIR",
+label:"Quelle description se rapproche le plus de l'état de la personne?",
 collection: [
-['Personne encore autonome dans les actes de la vie courante', 'GIR 6'],
-['Personne ayant seulement besoin d\'une aide ponctuelle pour la toilette, la préparation des repas et le ménage', 'GIR 5'],
-['Personne n\'assumant pas ses transferts mais qui une fois levée peut se déplacer à l\'intérieur de son logement et a besoin d\'aide pour la toilette et l\'habillage ou personne n\'ayant pas de problèmes locomoteurs mais qui doit être aidée pour les soins corporels et les repas', 'GIR 4'],
-['Personne ayant conservé son autonomie mentale, partiellement son autonomie locomotrice, mais qui a besoin quotidiennement et plusieurs fois par jour d\'une aide pour les soins corporels', 'GIR 3'],
-['Personne confinée au lit ou au fauteuil, dont les fonctions mentales ne sont pas totalement altérées et dont l\'état exige une prise en charge pour la plupart des activités de la vie courante, ou personne dont les fonctions mentales sont altérées, mais qui est capable de se déplacer et qui nécessite une surveillance permanente', 'GIR 2'],
-['Personne confinée au lit ou au fauteuil dont les fonctions mentales sont gravement altérées et qui nécessite une présence indispensable et continue d\'intervenants', 'GIR 1'],
+['Personne encore autonome dans les actes de la vie courante', 'GIR 5-6'],
+['Personne ayant seulement besoin d\'une aide ponctuelle pour la toilette, la préparation des repas et le ménage', 'GIR 5-6'],
+['Personne n\'assumant pas ses transferts mais qui une fois levée peut se déplacer à l\'intérieur de son logement et a besoin d\'aide pour la toilette et l\'habillage ou personne n\'ayant pas de problèmes locomoteurs mais qui doit être aidée pour les soins corporels et les repas', 'GIR 3-4'],
+['Personne ayant conservé son autonomie mentale, partiellement son autonomie locomotrice, mais qui a besoin quotidiennement et plusieurs fois par jour d\'une aide pour les soins corporels', 'GIR 3-4'],
+['Personne confinée au lit ou au fauteuil, dont les fonctions mentales ne sont pas totalement altérées et dont l\'état exige une prise en charge pour la plupart des activités de la vie courante, ou personne dont les fonctions mentales sont altérées, mais qui est capable de se déplacer et qui nécessite une surveillance permanente', 'GIR 1-2'],
+['Personne confinée au lit ou au fauteuil dont les fonctions mentales sont gravement altérées et qui nécessite une présence indispensable et continue d\'intervenants', 'GIR 1-2'],
 ['Je ne sais pas']
 ],
 as: :radio_buttons,
@@ -71,8 +71,8 @@ value_method: :last
   </div>
 
 
-  <%= f.input :etat_de_sante,label: "État de santé",  as: :radio_buttons,  collection: ['Bon', 'Moyen', 'Faible'] %>
-  <%= f.input :conditions_medicales_particulieres, label: "Conditions médicales particulières"%>
+  <%= f.input :etat_de_sante,label: "État de santé",  as: :radio_buttons,  collection: ['Nécessite une présence infirmière permanente', 'Nécessite une présence médicale permanente', 'Nécessite une présence infirmière quotidienne','Nécessite une présence médicale quotidienne','Nécessite une présence médicale hebdomadaire'] %>
+  <%= f.input :conditions_medicales_particulieres, label: "Conditions médicales particulières (besoins de consulter des médecins spécialisés...)"%>
   <%= f.input :maladie_degenerative,label:"Maladie dégénérative",  as: :radio_buttons, collection: ['Oui', 'Non'] %>
   </div>
 
@@ -87,6 +87,7 @@ value_method: :last
   <h3 class="quizz-part-title text-center">Critères administratifs</h3>
   <div class="green-card">
   <%= f.input :etat_du_dossier_administratif,label:"État du dossier administratif", as: :radio_buttons, collection: ['Complet', 'Incomplet', 'Non commencé'] %>
+  <%= f.input :revenu_mensuel_mini, label: "La personne a un revenu mensuel inférieur à 2 635,54 € ", as: :boolean %>
   <%= f.input :budget_mensuel,label:"Budget mensuel maximum", collection: 1000.step(5000, 500) %>
   <%= f.input :aides_financieres_déjà_obtenues_ou_en_cours,label:"Aides financières déjà obtenues ou en cours",as: :check_boxes, collection: ['APA', 'Aide sociale', 'PCH', 'CAF', 'Ne sais pas'] %>
   <%= f.input :aides_financieres_a_demander,label:"Aides financières à demander",as: :check_boxes, collection: ['APA', 'Aide sociale', 'PCH', 'CAF', 'Ne sais pas'] %>

@@ -1,3 +1,4 @@
+<div class="text-center">
 <div class="green-card">
 <h2>Nom de l'établissement</h2>
 <%= @etablissement.raison_sociale %>
@@ -9,4 +10,37 @@
 <%= @etablissement.date_maj%>
 <h3>Status</h3>
 <%= @etablissement.status%>
+</div>
+
+
+<h2>Services</h2>
+<div class="green-card">
+  <ul>
+    <% @etablissement.available_services.each do |attribute, description| %>
+      <li>
+        <%= description %>:
+        <%= attribute.to_s.start_with?("autre_prestation") ? @etablissement.send(attribute) : "Oui" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+
+<h2>Prix</h2>
+<div class="green-card">
+  <% Etablissement::PRICE_DESCRIPTIONS.each do |price_attribute, description| %>
+    <p>
+      <% price_value = @etablissement.send(price_attribute) %>
+      <% if price_value.present? && price_value != 0 %>
+        <strong><%= description %>:</strong>
+        <%= number_to_currency(price_value, unit: "€", format: "%n %u", precision: 2) %>
+      <% else %>
+        <%= description %>:
+        Tarif non renseigné
+      <% end %>
+    </p>
+  <% end %>
+  Prix minimum : <%= @etablissement.prix_minimum %> €
+</div>
+
 </div>

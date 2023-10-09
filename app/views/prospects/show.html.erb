@@ -8,18 +8,27 @@
 
   <%= @prospect_form.telephone %>
 
+  <%= @prospect_form.revenu_mensuel_mini  %>
+
 <h3>Date de la fiche</h3>
   <%= @prospect_form.created_at %>
 </div>
 
 </div>
 
-<h3>5 Etablissements proches</h3>
+<h3>Etablissements proches</h3>
 <% @etablissements_proches.each do |e|  %>
 <div class="greener-card">
 <p><strong><%= e.raison_sociale %></strong></p>
 <p>Adresse: <%= e.adresse%></p>
 <p>Téléphone: <%= e.telephone%></p>
+<% if @prospect_form.revenu_mensuel_mini %>
+<p>Prix minimum: <%= e.prix_minimum %></p>
+<% else %>
+<p>Prix minimum vu la situation de la personne:</p>
+<%= e.prix_fonction_gir(@prospect_form.echelle_gir)  %>
+<% end %>
+
 <%= link_to 'Voir l’Établissement', etablissement_path(e), class:"btn btn-success m-3" %>
 
 </div>
