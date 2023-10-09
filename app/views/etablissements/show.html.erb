@@ -19,7 +19,11 @@
     <% @etablissement.available_services.each do |attribute, description| %>
       <li>
         <%= description %>:
-        <%= attribute.to_s.start_with?("autre_prestation") ? @etablissement.send(attribute) : "Oui" %>
+        <% if @etablissement.available_standard_services.keys.include?(attribute) %>
+          <%= @etablissement.send(attribute).to_s == "1" ? description : "Non" %>
+        <% else %>
+          <%= @etablissement.send(attribute) %>
+        <% end %>
       </li>
     <% end %>
   </ul>
