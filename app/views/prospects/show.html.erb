@@ -26,7 +26,7 @@
 <p>Prix minimum: <%= e.prix_minimum %></p>
 <% else %>
 <p>Prix minimum vu la situation de la personne:</p>
-<%= e.prix_fonction_gir(@prospect_form.echelle_gir)  %>
+<p><%= e.prix_fonction_gir(@prospect_form.echelle_gir)%> €</p>
 <% end %>
 
 <%= link_to 'Voir l’Établissement', etablissement_path(e), class:"btn btn-success m-3" %>
