@@ -7,20 +7,22 @@
 <h3>Adresse</h3>
 <%= @etablissement.adresse %>
 <h3>Date de mise à jour</h3>
-<%= @etablissement.date_maj%>
+<%= @etablissement.date_maj.strftime("%d %B %Y")%>
 <h3>Status</h3>
 <%= @etablissement.status%>
 </div>
 
 
+
 <h2>Services</h2>
+<p style="font-size:70%">Date de MAJ des prix et prestations : <%= @etablissement.date_maj_prix.strftime("%d %B %Y") %></p>
 <div class="green-card">
   <ul>
     <% @etablissement.available_services.each do |attribute, description| %>
       <li>
         <%= description %>:
         <% if @etablissement.available_standard_services.keys.include?(attribute) %>
-          <%= @etablissement.send(attribute).to_s == "1" ? description : "Non" %>
+        <p>Oui</p>
         <% else %>
           <%= @etablissement.send(attribute) %>
         <% end %>

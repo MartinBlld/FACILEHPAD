@@ -66,7 +66,7 @@ class Etablissement < ApplicationRecord
 
   def available_standard_services
     SERVICE_DESCRIPTIONS.select do |attribute, _|
-      self[attribute] == "1"
+      self[attribute] == 1
     end
   end
 
