@@ -7,13 +7,15 @@ class ProspectsController < ApplicationController
   def create
     cleaned_params = clean_array_params(prospect_form_params)
     @prospect_form = ProspectForm.new(cleaned_params)
-
     if @prospect_form.save
+      # Créer une Proposition après la création réussie d'un ProspectForm
+      Proposition.create_for_prospect_form(@prospect_form)
       redirect_to root_path
     else
       render :new
     end
   end
+
 
   def index
     @prospect_forms = ProspectForm.all
@@ -43,6 +45,10 @@ class ProspectsController < ApplicationController
       :connaissance_gir,
       :revenu_mensuel_mini,
       :echelle_gir,
+      :temps_de_trajet_maximum_en_minutes,
+      :moyen_de_transport,
+      :transit_option,
+      :routing_preference,
       services_indispensables: [],
       services_souhaites: [],
       type_de_residence: [],
@@ -57,6 +63,7 @@ class ProspectsController < ApplicationController
       aides_financieres_a_demander: []
     )
   end
+
 
 
   def clean_array_params(params)

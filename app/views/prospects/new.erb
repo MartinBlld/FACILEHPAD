@@ -17,7 +17,22 @@
 
                 <%# demander si c'est la même ville? %>
   <%= f.input :rayon_de_recherche, as: :radio_buttons, collection: ['1 km', '3 km','5 km', '10 km', '20 km', '50 km', '100 km'] %>
+  <%= f.input :temps_de_trajet_maximum_en_minutes, label:'Temps de trajet maximum depuis l\'adresse indiquée', as: :radio_buttons, collection: ['10 minutes', '20 minutes', '30 minutes', '40 minutes', '50 minutes', '60 minutes', 'Supérieur à 1h'] %>
+
+  <div data-controller="transport">
+  <%= f.input :moyen_de_transport, label: 'En:', as: :radio_buttons, collection: ['Voiture', 'Transports en commun', 'Marche à pied'],
+              input_html: {data: {transport_target: "transportType", action: "transport#change"}} %>
+
+  <div data-transport-target="transitOption" class="d-none">
+    <%= f.input :transit_option, label: 'Avez-vous une préférence pour un moyen de transport en commun ?', as: :check_boxes, collection: ['Bus', 'Train/Tramway/metro', 'Sans préférence'] %>
+  </div>
+
+  <div data-transport-target="routingPreference" class="d-none">
+    <%= f.input :routing_preference, label: 'Avez-vous une préférence ?', as: :radio_buttons, collection: ['Le moins de marche à pied', 'Le moins de changements', 'Sans préference'] %>
+  </div>
 </div>
+
+   </div>
 
 <h3 class="quizz-part-title text-center">Critères concernant l'établissement</h3>
 <%# Etablissement %>
@@ -71,7 +86,7 @@ value_method: :last
   </div>
 
 
-  <%= f.input :etat_de_sante,label: "État de santé",  as: :radio_buttons,  collection: ['Nécessite une présence infirmière permanente', 'Nécessite une présence médicale permanente', 'Nécessite une présence infirmière quotidienne','Nécessite une présence médicale quotidienne','Nécessite une présence médicale hebdomadaire'] %>
+  <%= f.input :etat_de_sante,label: "État de santé",  as: :radio_buttons,  collection: ['Présence infirmière permanente', 'Présence médicale permanente', 'Présence infirmière quotidienne','Présence médicale quotidienne','Présence médicale hebdomadaire'] %>
   <%= f.input :conditions_medicales_particulieres, label: "Conditions médicales particulières (besoins de consulter des médecins spécialisés...)"%>
   <%= f.input :maladie_degenerative,label:"Maladie dégénérative",  as: :radio_buttons, collection: ['Oui', 'Non'] %>
   </div>

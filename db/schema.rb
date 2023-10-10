@@ -10,9 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_09_151002) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_10_134728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "etablissement_propositions", force: :cascade do |t|
+    t.bigint "etablissement_id", null: false
+    t.bigint "proposition_id", null: false
+    t.integer "distance_etablissement_prospect"
+    t.integer "temps_de_transport_en_secondes"
+    t.text "temps_de_trajet_affichable"
+    t.string "moyen_de_transport"
+    t.string "classement"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "transit_option"
+    t.string "routing_preference"
+    t.index ["etablissement_id"], name: "index_etablissement_propositions_on_etablissement_id"
+    t.index ["proposition_id"], name: "index_etablissement_propositions_on_proposition_id"
+  end
 
   create_table "etablissements", force: :cascade do |t|
     t.string "siret"
@@ -66,6 +82,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_09_151002) do
     t.datetime "date_maj_prix"
   end
 
+  create_table "propositions", force: :cascade do |t|
+    t.bigint "prospect_form_id", null: false
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["prospect_form_id"], name: "index_propositions_on_prospect_form_id"
+  end
+
   create_table "prospect_forms", force: :cascade do |t|
     t.string "email"
     t.string "telephone"
@@ -103,6 +127,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_09_151002) do
     t.boolean "connaissance_gir"
     t.string "status"
     t.boolean "revenu_mensuel_mini"
+    t.integer "temps_de_trajet_maximum_en_minutes"
+    t.string "moyen_de_transport"
+    t.string "routing_preference"
+    t.string "transit_option"
   end
 
+  add_foreign_key "etablissement_propositions", "etablissements"
+  add_foreign_key "etablissement_propositions", "propositions"
+  add_foreign_key "propositions", "prospect_forms"
 end

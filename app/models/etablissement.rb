@@ -1,4 +1,8 @@
 class Etablissement < ApplicationRecord
+  has_many :etablissement_propositions
+  has_many :propositions, through: :etablissement_propositions
+  has_many :etablissement_propositions, dependent: :destroy
+
   validates :finesset, uniqueness: true, allow_nil: true
   validates :prestation_inc_1, :prestation_inc_2, :prestation_inc_3,
   :prestation_inc_4, :prestation_inc_5, :prestation_inc_6,

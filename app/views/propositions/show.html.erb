@@ -1,0 +1,20 @@
+<h1>Proposition pour <%= @proposition.prospect_form.email %></h1>
+<p>Status: <%= @proposition.status %></p>
+
+<h2>Etablissements Proposés</h2>
+
+<% @etablissement_propositions.each do |etablissement_proposition| %>
+  <div class="greener-card">
+    <p><strong><%= etablissement_proposition.etablissement.raison_sociale %></strong></p>
+    <p>Temps de trajet: <%= etablissement_proposition.temps_de_transport_en_secondes / 60 %> minutes</p>
+    <p>Adresse: <%= etablissement_proposition.etablissement.adresse %></p>
+    <p>Téléphone: <%= etablissement_proposition.etablissement.telephone %></p>
+    <% if @prospect_form.revenu_mensuel_mini %>
+      <p>Prix minimum: <%= etablissement_proposition.etablissement.prix_minimum %></p>
+    <% else %>
+      <p>Prix minimum vu la situation de la personne:</p>
+      <p><%= etablissement_proposition.etablissement.prix_fonction_gir(@prospect_form.echelle_gir) %> €</p>
+    <% end %>
+    <%= link_to 'Voir l’Établissement', etablissement_path(etablissement_proposition.etablissement), class:"btn btn-success m-3" %>
+  </div>
+<% end %>

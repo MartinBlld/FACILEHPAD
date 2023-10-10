@@ -9,6 +9,8 @@
 <%= prospect.telephone %>
 <p><strong>Message:</strong></p>
 <%= prospect.commentaires %>
-<%= link_to 'Voir le Formulaire', prospect_form_path(prospect), class:"btn btn-yellow" %>
+<%= link_to 'Voir Proposition', proposition_path(prospect.proposition) %>
+
+
 </div>
 <%  end  %>
