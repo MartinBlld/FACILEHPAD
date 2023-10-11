@@ -1,4 +1,12 @@
 # config/locales/fr.yml
 
 fr:
-  hello: "Bonjour le monde"
+  activerecord:
+    models:
+      prospect_form: ProspectForm
+    attributes:
+      prospect_form:
+        email: "Email"
+  errors:
+    messages:
+      invalid: "Veuillez entrer une %{attribute} valide"

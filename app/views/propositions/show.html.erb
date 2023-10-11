@@ -6,7 +6,8 @@
 <% @etablissement_propositions.each do |etablissement_proposition| %>
   <div class="greener-card">
     <p><strong><%= etablissement_proposition.etablissement.raison_sociale %></strong></p>
-    <p>Temps de trajet: <%= etablissement_proposition.temps_de_transport_en_secondes / 60 %> minutes</p>
+    <p>Temps de trajet: <%= etablissement_proposition.temps_de_trajet_affichable%></p>
+    <p>En: <%= etablissement_proposition.moyen_de_transport%></p>
     <p>Adresse: <%= etablissement_proposition.etablissement.adresse %></p>
     <p>Téléphone: <%= etablissement_proposition.etablissement.telephone %></p>
     <% if @prospect_form.revenu_mensuel_mini %>

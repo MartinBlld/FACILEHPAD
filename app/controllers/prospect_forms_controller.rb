@@ -1,4 +1,4 @@
-class ProspectsController < ApplicationController
+class ProspectFormsController < ApplicationController
 
   def new
     @prospect_form = ProspectForm.new
@@ -8,6 +8,7 @@ class ProspectsController < ApplicationController
     cleaned_params = clean_array_params(prospect_form_params)
     @prospect_form = ProspectForm.new(cleaned_params)
     if @prospect_form.save
+      
       # Créer une Proposition après la création réussie d'un ProspectForm
       Proposition.create_for_prospect_form(@prospect_form)
       redirect_to root_path
@@ -47,8 +48,8 @@ class ProspectsController < ApplicationController
       :echelle_gir,
       :temps_de_trajet_maximum_en_minutes,
       :moyen_de_transport,
-      :transit_option,
       :routing_preference,
+      transit_option:[],
       services_indispensables: [],
       services_souhaites: [],
       type_de_residence: [],
@@ -78,7 +79,9 @@ class ProspectsController < ApplicationController
       :besoins_spécifiques_aménagement,
       :besoins_spécifiques_visiteurs,
       :aides_financieres_déjà_obtenues_ou_en_cours,
-      :aides_financieres_a_demander
+      :aides_financieres_a_demander,
+      :transit_option,
+      :meubles_et_objets_personnels
     ]
     array_attributes.each do |attribute|
       params[attribute]&.reject!(&:blank?)

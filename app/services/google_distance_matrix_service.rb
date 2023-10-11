@@ -3,15 +3,15 @@ class GoogleDistanceMatrixService
   require 'json'
 
   TRANSLATION = {
-    "Voiture" => "DRIVING",
-    "Transports en commun" => "TRANSIT",
-    "Marche à pied" => "WALKING",
+    "Voiture" => "driving",
+    "Transports en commun" => "transit",
+    "Marche à pied" => "walking",
     # Options avec Transit
-    "Le moins de marche à pied" => "LESS_WALKING",
-    "Le moins de changements" => "FEWER_TRANSFERS",
+    "Le moins de marche à pied" => "less_walking",
+    "Le moins de changements" => "fewer_transfers",
     # Choix du transport en commun
-    "Bus" => "BUS",
-    "Train/Tramway/metro" => "RAIL"
+    "Bus" => "bus",
+    "Train/Tramway/metro" => "rail"
   }.freeze
 
 
@@ -22,7 +22,7 @@ class GoogleDistanceMatrixService
     @destination = destination
     @mode = TRANSLATION[mode] || mode
     @routing_preference = TRANSLATION[routing_preference] || routing_preference
-    @transit_mode = TRANSLATION[transit_mode] || transit_mode
+    @transit_mode = TRANSLATION[JSON.parse(transit_mode).first]
     @api_key = ENV['GOOGLE_MAPS_API_KEY']
     puts "Parameters: #{@origin}, #{@destination}, #{@mode}, #{@routing_preference}, #{@transit_mode}"
   end
@@ -41,6 +41,7 @@ class GoogleDistanceMatrixService
 
     uri = URI(base_uri)
     uri.query = URI.encode_www_form(params)
+    puts "URL de la requête : #{uri.to_s}"  # Ajoutez cette ligne pour afficher l'URL
 
     response = Net::HTTP.get(uri)
     json_response = JSON.parse(response)

@@ -5,7 +5,7 @@ class EtablissementProposition < ApplicationRecord
 
   before_create :set_travel_time
 
- 
+
   private
 
   def set_travel_time
@@ -18,7 +18,10 @@ class EtablissementProposition < ApplicationRecord
     result = service.get_distance_and_duration
 
     if result
-      self.moyen_de_transport = result[:mode]
+      self.moyen_de_transport = self.proposition.prospect_form.moyen_de_transport
+      if self.moyen_de_transport == "Transports en commun"
+      end
+      puts "result[:mode] = #{result[:mode]}"
       self.routing_preference = result[:routing_preference]
       self.transit_option = result[:transit_option]
       self.temps_de_trajet_affichable = result[:duration_text]

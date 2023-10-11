@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  resources :prospect_forms, controller: 'prospects', only: [:index, :show, :new, :create]
+  resources :prospect_forms, only: [:index, :show, :new, :create]
 
-  resources :propositions, only: [:show]
+  resources :propositions, only: [:show, :new, :create]
 
 
   resources :etablissements, only: [:index, :show, :new, :create]
