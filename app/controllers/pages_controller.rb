@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:home, :mentions_légales, :contact, :new, :qui_sommes_nous]
+
+
   def home
   end
 
@@ -11,5 +14,8 @@ class PagesController < ApplicationController
 
   def contact
   end
-  
+
+  def qui_sommes_nous
+  end
+
 end
